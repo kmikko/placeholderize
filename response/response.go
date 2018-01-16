@@ -13,7 +13,7 @@ func WriteResponse(w http.ResponseWriter, img image.Image, t string) {
 		w.Header().Set("Content-Type", "image/png")
 		png.Encode(w, img)
 	case "jpg", "jpeg":
+		w.Header().Set("Content-Type", "image/jpeg")
 		jpeg.Encode(w, img, &jpeg.Options{Quality: 80})
 	}
-
 }
