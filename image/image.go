@@ -4,7 +4,6 @@ import (
 	"image"
 	"image/color"
 	"image/draw"
-	"log"
 	"math"
 	"math/rand"
 
@@ -23,11 +22,11 @@ var colors = []color.RGBA{
 
 var dpi float64 = 72
 
-func CreateImage(width, height int, text string, size float64) image.Image {
-	// Read the font data.
+func CreateImage(width, height int, text string, size float64) (image.Image, error) {
+	// Read the font data
 	f, err := truetype.Parse(goregular.TTF)
 	if err != nil {
-		log.Panicf("Could not read font data: %s", err)
+		return nil, err
 	}
 
 	// Create image
@@ -52,5 +51,5 @@ func CreateImage(width, height int, text string, size float64) image.Image {
 	}
 	d.DrawString(text)
 
-	return img
+	return img, nil
 }
