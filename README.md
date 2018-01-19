@@ -3,6 +3,8 @@ Generate placeholder images with custom text.
 
 ![Preview](https://user-images.githubusercontent.com/2776729/34992240-2a8889be-fad5-11e7-8008-fbaae27ccec0.gif)
 
+[![Build Status](https://travis-ci.org/kmikko/placeholderize.svg?branch=master)](https://travis-ci.org/kmikko/placeholderize)
+
 ## Install
 `go get github.com/kmikko/placeholderize`
 
