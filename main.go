@@ -1,6 +1,8 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -8,8 +10,6 @@ import (
 	"github.com/kmikko/placeholderize/request"
 	"github.com/kmikko/placeholderize/response"
 )
-
-const ADDR = ":8888"
 
 func handlePNG(w http.ResponseWriter, r *http.Request) {
 	log.Printf("New PNG request: %s", r.URL.Query())
@@ -38,6 +38,11 @@ func handleJPG(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	var port = flag.Int("port", 8080, "Port on which service will run")
+	flag.Parse()
+
+	var ADDR = fmt.Sprintf(":%d", *port)
+
 	http.HandleFunc("/image.png", handlePNG)
 	http.HandleFunc("/image.jpg", handleJPG)
 	http.HandleFunc("/image.jpeg", handleJPG)

@@ -3,6 +3,12 @@ Generate placeholder images with custom text.
 
 ![Preview](https://user-images.githubusercontent.com/2776729/34992240-2a8889be-fad5-11e7-8008-fbaae27ccec0.gif)
 
+## Install
+`go get github.com/kmikko/placeholderize`
+
+## Usage
+`placeholderize [-port number]`
+
 **Placeholderize** exposes following endpoints for generating images:
  - `/image.png` for PNG images
  - `/image.jpg` for JPG images
